@@ -1,32 +1,92 @@
-intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-
-responses:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+intents:
+- thankyou
+- goodbye
+- request_bill
+- deny
+- just_that
+- order
+- affirm
+- greet
+- chitchat:
+    use_entities: []
+- choose
+entities:
+- confirmed
+- curse_words
+- dish
+- drink
+- number
+slots:
+  confirmed:
+    type: unfeaturized
+  dish:
+    type: unfeaturized
+  drink:
+    type: unfeaturized
+  number:
+    type: unfeaturized
+  observation:
+    type: unfeaturized
+  requested_slot:
+    type: unfeaturized
+responses:
+  utter_anything_else:
+  - text: Algo mais?
+  - text: Mais alguma coisa?
+  utter_ask_confirmed:
+  - buttons:
+    - payload: '/affirm{"confirmed": true}'
+      title: Sim
+    - payload: '/deny{"confirmed": false}'
+      title: Não
+    text: Posso confirmar o seu pedido?
+  utter_ask_dish:
+  - text: Qual prato?
+  utter_ask_drink:
+  - text: O que quer para beber?
+  utter_ask_number:
+  - text: Quantos?
+  utter_ask_observation:
+  - text: Alguma observação?
+  utter_goodbye:
+  - text: Adeus, volte sempre.
+  - text: Até mais! Muito obrigado pela sua visita!
+  utter_greet:
+  - image: https://dbdzm869oupei.cloudfront.net/img/sticker/large/8340.jpg
+    text: Olá! Meu nome é Banana, sou garçom virtual, posso anotar seu pedido?
+  utter_noworries:
+  - text: Sem problemas!
+  - text: De nada!
+  - text: Estou feliz em ajudar.
+  utter_order_canceled:
+  - text: Seu pedido foi cancelado.
+  utter_order_confirmed:
+  - text: Seu pedido foi enviado a cozinha. Por favor aguarde.
+  utter_please_wait:
+  - text: Muito bem então, agora é só aguardar.
+  utter_sending_bill:
+  - text: Aguarde, um garçom levará até você.
+  utter_waiting_user_say:
+  - text: Pode falar, estou ouvindo.
+  - text: Pode falar que eu anoto.
+actions:
+- action_show_orders
+- utter_anything_else
+- utter_ask_confirmed
+- utter_ask_dish
+- utter_ask_drink
+- utter_ask_number
+- utter_ask_observation
+- utter_goodbye
+- utter_greet
+- utter_noworries
+- utter_order_canceled
+- utter_order_confirmed
+- utter_please_wait
+- utter_sending_bill
+- utter_waiting_user_say
+forms:
+- dish_form

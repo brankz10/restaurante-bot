@@ -38,7 +38,6 @@
 - quais idiomas você fala?
 - você sabe falar quantas línguas?
 - fala outras línguas?
-- sabe [espanhol](language)?
 
 ## intent:chitchat/ask_time
 - que horas são?
@@ -72,7 +71,7 @@
 - como você se chama?
 
 ## intent:chitchat/handleinsult
-- [oda-se](curse_words)
+- [foda-se](curse_words)
 - vai se [foder](curse_words)
 - eu te odeio
 - tomar no [cu](curse_words)
@@ -100,17 +99,8 @@
 - conta aí uma piada
 - você poderia me contar uma piada?
 
+## intent:choose
+- /choose{"confirmed": true}
+
 ## lookup:curse_words.txt
   data/lookup_tables/curse_words.txt
-
-## lookup:language.txt
-  data/lookup_tables/language.txt
-
-
-
-
-
-
-
-
-
