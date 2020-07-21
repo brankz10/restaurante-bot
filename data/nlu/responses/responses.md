@@ -1,7 +1,7 @@
 ## chitchat
 * chitchat/ask_builder 
-  - Pelos engenheiros inteligentes do Banana! 🧠
-  - Os engenheiros de Banana 🛠
+  - Fui criado pelos engenheiros inteligentes do Banana! 🧠
+  - Quem me criou foram os engenheiros de Banana 🛠
 
 
 ## chitchat
@@ -100,9 +100,4 @@
 
 ## chitchat
 * chitchat/telljoke 
-  -  Why are eggs not very much into jokes? - Because they could crack up.
-  -  What's a tree's favorite drink? - Root beer!
-  -  Why do the French like to eat snails so much? - They can't stand fast food.
-  -  Why did the robot get angry? - Because someone kept pushing its buttons.
-  -  What do you call a pirate droid? - Arrrr-2-D2
-  -  Why did the robot cross the road? - Because he was programmed to.
+  - Por que o pinheiro nunca se perde? Porque ele tem uma pinha.

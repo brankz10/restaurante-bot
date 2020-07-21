@@ -1,37 +1,41 @@
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
-intents:
-- thankyou
-- goodbye
-- request_bill
-- deny
-- just_that
-- order
-- affirm
-- greet
-- chitchat:
-    use_entities: []
-- choose
+actions:
+- action_show_orders
+- respond_chitchat
+- utter_anything_else
+- utter_ask_confirmed
+- utter_ask_dish
+- utter_ask_number
+- utter_ask_observation
+- utter_goodbye
+- utter_greet
+- utter_in_your_time
+- utter_noworries
+- utter_order_canceled
+- utter_order_confirmed
+- utter_please_wait
+- utter_sending_bill
+- utter_waiting_user_say
 entities:
 - confirmed
 - curse_words
 - dish
-- drink
 - number
-slots:
-  confirmed:
-    type: unfeaturized
-  dish:
-    type: unfeaturized
-  drink:
-    type: unfeaturized
-  number:
-    type: unfeaturized
-  observation:
-    type: unfeaturized
-  requested_slot:
-    type: unfeaturized
+- observation
+forms:
+- dish_form
+intents:
+- chitchat:
+    use_entities: []
+- greet
+- observation
+- goodbye
+- order
+- affirm
+- deny
+- request_bill
+- thankyou
+- just_that
+- choose
 responses:
   utter_anything_else:
   - text: Algo mais?
@@ -44,9 +48,7 @@ responses:
       title: Não
     text: Posso confirmar o seu pedido?
   utter_ask_dish:
-  - text: Qual prato?
-  utter_ask_drink:
-  - text: O que quer para beber?
+  - text: O que quer para comer?
   utter_ask_number:
   - text: Quantos?
   utter_ask_observation:
@@ -57,6 +59,8 @@ responses:
   utter_greet:
   - image: https://dbdzm869oupei.cloudfront.net/img/sticker/large/8340.jpg
     text: Olá! Meu nome é Banana, sou garçom virtual, posso anotar seu pedido?
+  utter_in_your_time:
+  - text: Fique à vontade. Quando quiser pedir é só me chamar.
   utter_noworries:
   - text: Sem problemas!
   - text: De nada!
@@ -72,21 +76,17 @@ responses:
   utter_waiting_user_say:
   - text: Pode falar, estou ouvindo.
   - text: Pode falar que eu anoto.
-actions:
-- action_show_orders
-- utter_anything_else
-- utter_ask_confirmed
-- utter_ask_dish
-- utter_ask_drink
-- utter_ask_number
-- utter_ask_observation
-- utter_goodbye
-- utter_greet
-- utter_noworries
-- utter_order_canceled
-- utter_order_confirmed
-- utter_please_wait
-- utter_sending_bill
-- utter_waiting_user_say
-forms:
-- dish_form
+session_config:
+  carry_over_slots_to_new_session: true
+  session_expiration_time: 60
+slots:
+  confirmed:
+    type: unfeaturized
+  dish:
+    type: unfeaturized
+  number:
+    type: unfeaturized
+  observation:
+    type: unfeaturized
+  requested_slot:
+    type: unfeaturized

@@ -8,7 +8,7 @@ import datetime
 from rasa_sdk import Action, Tracker
 from rasa_sdk.forms import FormAction
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import EventType
+from rasa_sdk.events import EventType, SlotSet
 
 logger = logging.getLogger(__name__)
 orders_dir = Path("orders/")
@@ -23,25 +23,37 @@ class DishForm(FormAction):
 
     @staticmethod
     def required_slots(tracker) -> List[Text]:
-        return ["dish", "number", "drink", "observation", "confirmed"]
+        return ["dish", "number", "observation", "confirmed"]
 
     def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
         return {
-            "dish": [
-                self.from_entity(entity="dish"),
-                self.from_intent(intent="deny", value="-"),
-            ],
+            "dish": [self.from_entity(entity="dish"),],
             "number": [
                 self.from_entity(entity="number", intent=["order"]),
                 self.from_intent(intent="order", value=1),
             ],
-            "drink": self.from_entity(entity="drink"),
             "observation": [
                 self.from_intent(intent="deny", value="Nenhuma observação"),
                 self.from_text(intent="observation"),
             ],
             "confirmed": self.from_entity(entity="confirmed"),
         }
+
+    def validate_dish(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """Validate dish value."""
+        if isinstance(value, list):
+            dispatcher.utter_message(
+                text="Por favor peça um item por vez, senão eu me confundo."
+            )
+            return {"dish": None}
+        else:
+            return {"dish": value}
 
     def submit(
         self,
@@ -57,7 +69,6 @@ class DishForm(FormAction):
                 "dish": [tracker.get_slot("dish")],
                 "number": [tracker.get_slot("number")],
                 "observation": [tracker.get_slot("observation")],
-                "drink": [tracker.get_slot("drink")],
                 "date": [datetime.datetime.now().strftime("%d/%m/%Y")],
             }
             df = pd.DataFrame(data)
@@ -65,12 +76,22 @@ class DishForm(FormAction):
                 df = pd.concat(
                     [pd.read_csv(orders_dir / f"{tracker.sender_id}.csv"), df]
                 )
-            df.to_csv(orders_dir / f"{tracker.sender_id}.csv")
+            df.to_csv(orders_dir / f"{tracker.sender_id}.csv", index=False)
             dispatcher.utter_message(template="utter_order_confirmed")
-            return []
+            return [
+                SlotSet("dish", None),
+                SlotSet("number", None),
+                SlotSet("observation", None),
+                SlotSet("confirmed", None),
+            ]
         else:
             dispatcher.utter_message(template="utter_order_canceled")
-            return []
+            return [
+                SlotSet("dish", None),
+                SlotSet("number", None),
+                SlotSet("observation", None),
+                SlotSet("confirmed", None),
+            ]
 
 
 class ActionShowOrders(Action):
@@ -85,7 +106,9 @@ class ActionShowOrders(Action):
     ) -> List[EventType]:
         if (orders_dir / f"{tracker.sender_id}.csv").exists():
             dispatcher.utter_message(
-                text=str(pd.read_csv(orders_dir / f"{tracker.sender_id}.csv").to_html())
+                text=str(
+                    pd.read_csv(orders_dir / f"{tracker.sender_id}.csv")
+                )
             )
         else:
             dispatcher.utter_message(text="Você ainda não fez nenhum pedido.")

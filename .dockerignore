@@ -1,0 +1,13 @@
+docker*
+docs
+.git*
+**/*.pyc
+**/__pycache__
+!docker/configs
+venv/
+Dockerfile
+README.md
+*.pyc
+*.pyo
+*.pyd
+__pycache__

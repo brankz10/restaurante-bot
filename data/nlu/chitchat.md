@@ -38,6 +38,7 @@
 - quais idiomas você fala?
 - você sabe falar quantas línguas?
 - fala outras línguas?
+- quantas linguas você fala?
 
 ## intent:chitchat/ask_time
 - que horas são?
@@ -98,9 +99,6 @@
 - quero ouvir uma piada
 - conta aí uma piada
 - você poderia me contar uma piada?
-
-## intent:choose
-- /choose{"confirmed": true}
 
 ## lookup:curse_words.txt
   data/lookup_tables/curse_words.txt
