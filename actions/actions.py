@@ -33,7 +33,8 @@ class DishForm(FormAction):
                 self.from_intent(intent="order", value=1),
             ],
             "note": [
-                self.from_intent(intent=["deny", "none"], value="Nenhuma observação"),
+                self.from_intent(intent="deny", value="Nenhuma observação"),
+                self.from_intent(intent="none", value="Nenhuma observação"),
                 self.from_text(intent="note"),
             ],
             "confirmed": self.from_entity(entity="confirmed"),
