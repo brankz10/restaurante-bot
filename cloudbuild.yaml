@@ -1,0 +1,15 @@
+steps:
+- name: "gcr.io/cloud-builders/docker"
+  args:
+  - build
+  - "--tag=gcr.io/restaurante-app-281223/bot"
+  - "--file=./Dockerfile"
+  - .
+- name: "gcr.io/cloud-builders/docker"
+  args:
+  - build
+  - "--tag=gcr.io/restaurante-app-281223/action"
+  - "--file=./Dockerfile.action"
+  - .
+images:
+- "gcr.io/restaurante-app-281223/bot"

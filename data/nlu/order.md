@@ -1,5 +1,8 @@
 ## intent:greet
 - olá
+- ola
+- eaeee
+- eaew
 - bom dia
 - boa tarde
 - boa noite
@@ -31,12 +34,12 @@
 - quero um [bigmc]{"entity": "dish", "value": "BIG MAC"}
 - quero uma [coca cola]{"entity": "dish", "value": "COCA COLA"}
 - quero um [coca cola]{"entity": "dish", "value": "COCA COLA"}
-- Quero uma [coca cola]{"entity": "dish", "value": "COCA COLA"} [bem gelada](observation)
-- Quero um [duplo salada]{"entity": "dish", "value": "DUPLO SALADA"} e uma [fanta laranja]{"entity": "dish", "value": "FANTA LARANJA"} [sem gelo](observation)
+- Quero uma [coca cola]{"entity": "dish", "value": "COCA COLA"} [bem gelada](note)
+- Quero um [duplo salada]{"entity": "dish", "value": "DUPLO SALADA"} e uma [fanta laranja]{"entity": "dish", "value": "FANTA LARANJA"} [sem gelo](note)
 - quero um [cheeseburger]{"entity": "dish", "value": "CHEESEBURGER"}
 - já sei, quero um [cheddar mcmelt]{"entity": "dish", "value": "CHEDDAR MCMELT"}
 - um apenas
-- quero um [coca]{"entity": "dish", "value": "COCA COLA"} [sem gelo](observation) também
+- quero um [coca]{"entity": "dish", "value": "COCA COLA"} [sem gelo](note) também
 - quero um [mc chicken]{"entity": "dish", "value": "MC CHICKEN"}
 
 ## intent:request_bill
@@ -56,6 +59,8 @@
 - está correto
 - sim sim
 - sim!
+- ss
+- s
 
 ## intent:deny
 - errado
@@ -83,14 +88,11 @@
 - por enquanto é isso
 - apenas isso
 
-## intent:observation
-- quero [sem maionese](observation)
-- sim, [com muito cheddar](observation)
-- quero ela [com](observation) uma rodela de limão
-- sim, quero [sem queijo](observation)
-
-## intent:chitchat
-- foi um prazer te conhecer
+## intent:note
+- quero [sem maionese](note)
+- sim, [com muito cheddar](note)
+- quero ela [com uma rodela de limão](note)
+- sim, quero [sem queijo](note)
 
 ## synonym:BIG MAC
 - BigMc
@@ -124,3 +126,10 @@
 
 ## regex:greet
 - [o]+[i]+e?\s
+
+## regex:laugh
+- kk+
+- [ha][ha]+
+
+## lookup:dish
+data/lookup_tables/dish.txt

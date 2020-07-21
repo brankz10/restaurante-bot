@@ -23,7 +23,7 @@ class DishForm(FormAction):
 
     @staticmethod
     def required_slots(tracker) -> List[Text]:
-        return ["dish", "number", "observation", "confirmed"]
+        return ["dish", "number", "note", "confirmed"]
 
     def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
         return {
@@ -32,9 +32,9 @@ class DishForm(FormAction):
                 self.from_entity(entity="number", intent=["order"]),
                 self.from_intent(intent="order", value=1),
             ],
-            "observation": [
-                self.from_intent(intent="deny", value="Nenhuma observação"),
-                self.from_text(intent="observation"),
+            "note": [
+                self.from_intent(intent=["deny", "none"], value="Nenhuma observação"),
+                self.from_text(intent="note"),
             ],
             "confirmed": self.from_entity(entity="confirmed"),
         }
@@ -68,7 +68,7 @@ class DishForm(FormAction):
             data = {
                 "dish": [tracker.get_slot("dish")],
                 "number": [tracker.get_slot("number")],
-                "observation": [tracker.get_slot("observation")],
+                "note": [tracker.get_slot("note")],
                 "date": [datetime.datetime.now().strftime("%d/%m/%Y")],
             }
             df = pd.DataFrame(data)
@@ -81,7 +81,7 @@ class DishForm(FormAction):
             return [
                 SlotSet("dish", None),
                 SlotSet("number", None),
-                SlotSet("observation", None),
+                SlotSet("note", None),
                 SlotSet("confirmed", None),
             ]
         else:
@@ -89,7 +89,7 @@ class DishForm(FormAction):
             return [
                 SlotSet("dish", None),
                 SlotSet("number", None),
-                SlotSet("observation", None),
+                SlotSet("note", None),
                 SlotSet("confirmed", None),
             ]
 

@@ -30,10 +30,10 @@
     - slot{"number": 1}
     - slot{"dish": "Big Mac"}
     - slot{"number": 1}
-    - slot{"requested_slot": "observation"}
+    - slot{"requested_slot": "note"}
 * form: deny
     - form: dish_form
-    - slot{"observation": "Nenhuma observação"}
+    - slot{"note": "Nenhuma observação"}
     - slot{"requested_slot": "confirmed"}
 * form: affirm{"confirmed": true}
     - slot{"confirmed": true}
@@ -63,11 +63,11 @@
     - slot{"number": 1}
     - slot{"dish": "CHEESEBURGER"}
     - slot{"number": 1}
-    - slot{"requested_slot": "observation"}
-* form: observation{"observation": "sem maionese"}
-    - slot{"observation": "sem maionese"}
+    - slot{"requested_slot": "note"}
+* form: note{"note": "sem maionese"}
+    - slot{"note": "sem maionese"}
     - form: dish_form
-    - slot{"observation": "quero sem maionese"}
+    - slot{"note": "quero sem maionese"}
     - slot{"requested_slot": "confirmed"}
 * form: deny{"confirmed": false}
     - slot{"confirmed": false}
@@ -75,7 +75,7 @@
     - slot{"confirmed": false}
     - slot{"dish": null}
     - slot{"number": null}
-    - slot{"observation": null}
+    - slot{"note": null}
     - slot{"confirmed": null}
     - form{"name": null}
     - slot{"requested_slot": null}
@@ -94,11 +94,11 @@
     - slot{"number": 1}
     - form: dish_form
     - slot{"number": 1}
-    - slot{"requested_slot": "observation"}
-* form: observation{"observation": "com muito cheddar"}
-    - slot{"observation": "com muito cheddar"}
+    - slot{"requested_slot": "note"}
+* form: note{"note": "com muito cheddar"}
+    - slot{"note": "com muito cheddar"}
     - form: dish_form
-    - slot{"observation": "sim, com muito cheddar"}
+    - slot{"note": "sim, com muito cheddar"}
     - slot{"requested_slot": "confirmed"}
 * form: affirm{"confirmed": true}
     - slot{"confirmed": true}
@@ -106,7 +106,7 @@
     - slot{"confirmed": true}
     - slot{"dish": null}
     - slot{"number": null}
-    - slot{"observation": null}
+    - slot{"note": null}
     - slot{"confirmed": null}
     - form{"name": null}
     - slot{"requested_slot": null}
@@ -114,15 +114,15 @@
     - utter_anything_else
 * affirm
     - utter_waiting_user_say
-* order{"number": 1, "dish": "COCA COLA", "observation": "sem gelo"}
+* order{"number": 1, "dish": "COCA COLA", "note": "sem gelo"}
     - slot{"dish": "COCA COLA"}
     - slot{"number": 1}
-    - slot{"observation": "sem gelo"}
+    - slot{"note": "sem gelo"}
     - dish_form
     - form{"name": "dish_form"}
     - slot{"dish": "COCA COLA"}
     - slot{"number": 1}
-    - slot{"observation": "sem gelo"}
+    - slot{"note": "sem gelo"}
     - slot{"dish": "COCA COLA"}
     - slot{"number": 1}
     - slot{"requested_slot": "confirmed"}
@@ -132,7 +132,7 @@
     - slot{"confirmed": true}
     - slot{"dish": null}
     - slot{"number": null}
-    - slot{"observation": null}
+    - slot{"note": null}
     - slot{"confirmed": null}
     - form{"name": null}
     - slot{"requested_slot": null}
@@ -160,11 +160,11 @@
     - slot{"number": 1}
     - slot{"dish": "MC CHICKEN"}
     - slot{"number": 1}
-    - slot{"requested_slot": "observation"}
-* form: observation{"observation": "sem queijo"}
-    - slot{"observation": "sem queijo"}
+    - slot{"requested_slot": "note"}
+* form: note{"note": "sem queijo"}
+    - slot{"note": "sem queijo"}
     - form: dish_form
-    - slot{"observation": "sim, quero sem queijo"}
+    - slot{"note": "sim, quero sem queijo"}
     - slot{"requested_slot": "confirmed"}
 * form: affirm{"confirmed": true}
     - slot{"confirmed": true}
@@ -172,7 +172,7 @@
     - slot{"confirmed": true}
     - slot{"dish": null}
     - slot{"number": null}
-    - slot{"observation": null}
+    - slot{"note": null}
     - slot{"confirmed": null}
     - form{"name": null}
     - slot{"requested_slot": null}
