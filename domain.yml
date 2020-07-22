@@ -1,23 +1,37 @@
 actions:
 - action_show_orders
 - respond_chitchat
+- utter_anything_else
+- utter_ask_confirmed
+- utter_ask_dish
+- utter_ask_note
+- utter_ask_number
+- utter_goodbye
+- utter_greet
+- utter_in_your_time
+- utter_noworries
+- utter_order_canceled
+- utter_order_confirmed
+- utter_please_wait
+- utter_sending_bill
+- utter_waiting_user_say
 entities:
 - confirmed
 - curse_words
 - dish
-- number
 - note
+- number
 forms:
 - dish_form
 intents:
-- chitchat:
-    use_entities: []
-- greet
-- note
-- goodbye
 - order
 - affirm
+- greet
 - deny
+- note
+- chitchat:
+    use_entities: []
+- goodbye
 - request_bill
 - thankyou
 - just_that
@@ -35,10 +49,10 @@ responses:
     text: Posso confirmar o seu pedido?
   utter_ask_dish:
   - text: O que quer para comer?
-  utter_ask_number:
-  - text: Quantos?
   utter_ask_note:
   - text: Alguma observação?
+  utter_ask_number:
+  - text: Quantos?
   utter_goodbye:
   - text: Adeus, volte sempre.
   - text: Até mais! Muito obrigado pela sua visita!
@@ -70,9 +84,9 @@ slots:
     type: unfeaturized
   dish:
     type: unfeaturized
-  number:
-    type: unfeaturized
   note:
+    type: unfeaturized
+  number:
     type: unfeaturized
   requested_slot:
     type: unfeaturized

@@ -38,9 +38,13 @@
 - Quero um [duplo salada]{"entity": "dish", "value": "DUPLO SALADA"} e uma [fanta laranja]{"entity": "dish", "value": "FANTA LARANJA"} [sem gelo](note)
 - quero um [cheeseburger]{"entity": "dish", "value": "CHEESEBURGER"}
 - já sei, quero um [cheddar mcmelt]{"entity": "dish", "value": "CHEDDAR MCMELT"}
-- um apenas
 - quero um [coca]{"entity": "dish", "value": "COCA COLA"} [sem gelo](note) também
 - quero um [mc chicken]{"entity": "dish", "value": "MC CHICKEN"}
+- oi, quero um [duplo quarterão]{"entity": "dish", "value": "DUPLO QUARTERAO"}
+
+## intent:inform
+- um apenas
+- dois
 
 ## intent:request_bill
 - gostaria da conta
@@ -73,6 +77,7 @@
 - Não
 - nao
 - n
+- Não não
 
 ## intent:thankyou
 - muito obrigado
@@ -93,6 +98,7 @@
 - sim, [com muito cheddar](note)
 - quero ela [com uma rodela de limão](note)
 - sim, quero [sem queijo](note)
+- quero que [tire o picles](note)
 
 ## synonym:BIG MAC
 - BigMc
@@ -120,6 +126,7 @@
 
 ## synonym:MC CHICKEN
 - Mc Chicken
+- mc chicken
 
 ## synonym:QUARTERAO
 - Quarteirões
@@ -128,8 +135,8 @@
 - [o]+[i]+e?\s
 
 ## regex:laugh
-- kk+
 - [ha][ha]+
+- kk+
 
 ## lookup:dish
-data/lookup_tables/dish.txt
+  data/lookup_tables/dish.txt

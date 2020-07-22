@@ -7,6 +7,11 @@
 - você tem pai?
 - você tem mãe?
 
+## intent:chitchat/praise
+- você é muito legal
+- você é top
+- você é muito divertido
+
 ## intent:chitchat/ask_howdoing
 - como você está?
 - estou bem e você?

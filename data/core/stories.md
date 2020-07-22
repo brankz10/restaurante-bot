@@ -90,7 +90,7 @@
     - slot{"dish": "CHEDDAR MCMELT"}
     - slot{"dish": "CHEDDAR MCMELT"}
     - slot{"requested_slot": "number"}
-* form: order{"number": 1}
+* form: inform{"number": 1}
     - slot{"number": 1}
     - form: dish_form
     - slot{"number": 1}
@@ -188,3 +188,38 @@
     - respond_chitchat
 * goodbye
     - utter_goodbye
+
+## interactive_story_1
+* order{"dish": "DUPLO QUARTERAO"}
+    - slot{"dish": "DUPLO QUARTERAO"}
+    - dish_form
+    - form{"name": "dish_form"}
+    - slot{"dish": "DUPLO QUARTERAO"}
+    - slot{"dish": "DUPLO QUARTERAO"}
+    - slot{"requested_slot": "number"}
+* form: inform{"number": 2}
+    - slot{"number": 2}
+    - form: dish_form
+    - slot{"number": 2}
+    - slot{"requested_slot": "note"}
+* form: note{"note": "tire o picles"}
+    - slot{"note": "tire o picles"}
+    - form: dish_form
+    - slot{"note": "quero que tire o picles"}
+    - slot{"requested_slot": "confirmed"}
+* form: affirm{"confirmed": true}
+    - slot{"confirmed": true}
+    - form: dish_form
+    - slot{"confirmed": true}
+    - slot{"dish": null}
+    - slot{"number": null}
+    - slot{"note": null}
+    - slot{"confirmed": null}
+    - form{"name": null}
+    - slot{"requested_slot": null}
+    - action_show_orders
+    - utter_anything_else
+* deny
+    - utter_please_wait
+* chitchat
+    - respond_chitchat

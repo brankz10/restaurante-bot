@@ -12,6 +12,10 @@
   - Fui criado por engenheiros de software.
   - Estou me construindo todos os dias. Estou malhando, você percebeu?
 
+## chitchat
+* chitchat/praise
+  - Muito obrigado, fico feliz em ler isso.
+
 
 ## chitchat
 * chitchat/ask_howdoing 
