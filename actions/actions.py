@@ -29,7 +29,7 @@ class DishForm(FormAction):
         return {
             "dish": [self.from_entity(entity="dish"),],
             "number": [
-                self.from_entity(entity="number", intent=["order"]),
+                self.from_entity(entity="number"),
                 self.from_intent(intent="order", value=1),
             ],
             "note": [
