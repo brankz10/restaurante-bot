@@ -1,92 +1,127 @@
-actions:
-- action_show_orders
-- respond_chitchat
-- utter_anything_else
-- utter_ask_confirmed
-- utter_ask_dish
-- utter_ask_note
-- utter_ask_number
-- utter_goodbye
-- utter_greet
-- utter_in_your_time
-- utter_noworries
-- utter_order_canceled
-- utter_order_confirmed
-- utter_please_wait
-- utter_sending_bill
-- utter_waiting_user_say
-entities:
-- confirmed
-- curse_words
-- dish
-- note
-- number
-forms:
-- dish_form
-intents:
-- order
-- affirm
-- greet
-- deny
-- note
-- chitchat:
-    use_entities: []
-- goodbye
-- request_bill
-- thankyou
-- just_that
-- choose
-responses:
-  utter_anything_else:
-  - text: Algo mais?
-  - text: Mais alguma coisa?
-  utter_ask_confirmed:
-  - buttons:
-    - payload: '/affirm{"confirmed": true}'
-      title: Sim
-    - payload: '/deny{"confirmed": false}'
-      title: Não
-    text: Posso confirmar o seu pedido?
-  utter_ask_dish:
-  - text: O que quer para comer?
-  utter_ask_note:
-  - text: Alguma observação?
-  utter_ask_number:
-  - text: Quantos?
-  utter_goodbye:
-  - text: Adeus, volte sempre.
-  - text: Até mais! Muito obrigado pela sua visita!
-  utter_greet:
-  - image: https://dbdzm869oupei.cloudfront.net/img/sticker/large/8340.jpg
-    text: Olá! Meu nome é Banana, sou garçom virtual, posso anotar seu pedido?
-  utter_in_your_time:
-  - text: Fique à vontade. Quando quiser pedir é só me chamar.
-  utter_noworries:
-  - text: Sem problemas!
-  - text: De nada!
-  - text: Estou feliz em ajudar.
-  utter_order_canceled:
-  - text: Seu pedido foi cancelado.
-  utter_order_confirmed:
-  - text: Seu pedido foi enviado a cozinha. Por favor aguarde.
-  utter_please_wait:
-  - text: Muito bem então, agora é só aguardar.
-  utter_sending_bill:
-  - text: Aguarde, um garçom levará até você.
-  utter_waiting_user_say:
-  - text: Pode falar, estou ouvindo.
-  - text: Pode falar que eu anoto.
-session_config:
+actions: 
+  - action_show_orders
+  - respond_chitchat
+  - utter_anything_else
+  - utter_ask_confirmed
+  - utter_ask_dish
+  - utter_ask_note
+  - utter_ask_number
+  - utter_goodbye
+  - utter_greet
+  - utter_in_your_time
+  - utter_noworries
+  - utter_order_canceled
+  - utter_order_confirmed
+  - utter_please_wait
+  - utter_react_happy
+  - utter_sending_bill
+  - utter_waiting_user_say
+entities: 
+  - confirmed
+  - curse_words
+  - dish
+  - note
+  - number
+forms: 
+  - dish_form
+intents: 
+  - request_bill
+  - note
+  - affirm
+  - order_later
+  - greet
+  - ready_to_order
+  - its_fine
+  - inform
+  - order
+  - deny
+  - 
+    chitchat: 
+      use_entities: []
+  - goodbye
+  - thankyou
+  - just_that
+  - choose
+responses: 
+  utter_anything_else: 
+    - 
+      text: "Gostaria de mais alguma coisa?"
+    - 
+      text: "Deseja mais alguma coisa?"
+  utter_ask_confirmed: 
+    - 
+      buttons: 
+        - 
+          payload: "/affirm{\"confirmed\": true}"
+          title: Sim
+        - 
+          payload: "/deny{\"confirmed\": false}"
+          title: Não
+      text: |-
+          Seu pedido:
+          Item: {dish}
+          Quantidade: {number}
+          Observação: {note}
+          Posso confirmar o seu pedido?
+  utter_ask_dish: 
+    - 
+      text: "O que deseja pedir?"
+  utter_ask_note: 
+    - 
+      text: "Alguma observação sobre seu pedido?"
+  utter_ask_number: 
+    - 
+      text: "Quantos deste item?"
+  utter_goodbye: 
+    - 
+      text: "Adeus, volte sempre."
+    - 
+      text: "Até mais! Muito obrigada pela sua visita!"
+  utter_greet: 
+    - 
+      image: "https://dbdzm869oupei.cloudfront.net/img/sticker/large/8340.jpg"
+      text: "Olá! Meu nome é Pan, sou sua garçonete virtual, posso anotar seu pedido?"
+  utter_in_your_time: 
+    - 
+      text: "Fique à vontade. Quando quiser pedir é só me chamar."
+  utter_noworries: 
+    - 
+      text: "Sem problemas!"
+    - 
+      text: "De nada!"
+    - 
+      text: "Fico feliz em ajudar."
+  utter_order_canceled: 
+    - 
+      text: "Certo, seu pedido foi cancelado. Caso queria tentar pedir de novo é só me chamar."
+  utter_order_confirmed: 
+    - 
+      text: "Seu pedido foi enviado a cozinha. Por favor aguarde."
+  utter_please_wait: 
+    - 
+      text: "Muito bem então, agora é só aguardar."
+  utter_react_happy: 
+    - 
+      text: 😁
+  utter_sending_bill: 
+    - 
+      text: "Por favor aguarde, um garçom levará até você."
+  utter_waiting_user_say: 
+    - 
+      text: "Pode falar, estou ouvindo."
+    - 
+      text: "Pode falar que eu estou anotando."
+session_config: 
   carry_over_slots_to_new_session: true
   session_expiration_time: 60
-slots:
-  confirmed:
+slots: 
+  confirmed: 
     type: unfeaturized
-  dish:
+  dish: 
     type: unfeaturized
-  note:
+  note: 
     type: unfeaturized
-  number:
+  number: 
     type: unfeaturized
-  requested_slot:
+  requested_slot: 
     type: unfeaturized

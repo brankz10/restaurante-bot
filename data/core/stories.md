@@ -5,7 +5,6 @@
   - dish_form
   - form{"name": "dish_form"}
   - form{"name": null}
-  - action_show_orders
   - utter_anything_else
 * deny
   - utter_please_wait
@@ -41,7 +40,6 @@
     - slot{"confirmed": true}
     - form{"name": null}
     - slot{"requested_slot": null}
-    - action_show_orders
     - utter_anything_else
 * just_that
     - utter_please_wait
@@ -79,7 +77,6 @@
     - slot{"confirmed": null}
     - form{"name": null}
     - slot{"requested_slot": null}
-    - action_show_orders
     - utter_in_your_time
 * thankyou
     - utter_noworries
@@ -110,7 +107,6 @@
     - slot{"confirmed": null}
     - form{"name": null}
     - slot{"requested_slot": null}
-    - action_show_orders
     - utter_anything_else
 * affirm
     - utter_waiting_user_say
@@ -136,7 +132,6 @@
     - slot{"confirmed": null}
     - form{"name": null}
     - slot{"requested_slot": null}
-    - action_show_orders
     - utter_anything_else
 * just_that
     - utter_please_wait
@@ -176,7 +171,6 @@
     - slot{"confirmed": null}
     - form{"name": null}
     - slot{"requested_slot": null}
-    - action_show_orders
     - utter_anything_else
 * deny
     - utter_please_wait
@@ -217,9 +211,47 @@
     - slot{"confirmed": null}
     - form{"name": null}
     - slot{"requested_slot": null}
-    - action_show_orders
     - utter_anything_else
 * deny
     - utter_please_wait
 * chitchat
     - respond_chitchat
+
+## interactive_story_1
+* greet
+    - utter_greet
+* order_later
+    - utter_in_your_time
+* ready_to_order
+    - utter_waiting_user_say
+* order{"number": 1, "dish": "suco de maracuja"}
+    - slot{"dish": "suco de maracuja"}
+    - slot{"number": 1}
+    - dish_form
+    - form{"name": "dish_form"}
+    - slot{"dish": "suco de maracuja"}
+    - slot{"number": 1}
+    - slot{"dish": "suco de maracuja"}
+    - slot{"number": 1}
+    - slot{"requested_slot": "note"}
+* form: note{"note": "sem açucar o suco"}
+    - slot{"note": "sem açucar o suco"}
+    - form: dish_form
+    - slot{"note": "gostaria sem açucar o suco"}
+    - slot{"requested_slot": "confirmed"}
+* form: affirm{"confirmed": true}
+    - slot{"confirmed": true}
+    - form: dish_form
+    - slot{"confirmed": true}
+    - slot{"dish": null}
+    - slot{"number": null}
+    - slot{"note": null}
+    - slot{"confirmed": null}
+    - form{"name": null}
+    - slot{"requested_slot": null}
+    - utter_anything_else
+* request_bill
+    - action_show_orders
+    - utter_sending_bill
+* its_fine
+    - utter_react_happy

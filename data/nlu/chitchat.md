@@ -84,7 +84,7 @@
 - [vtnc](curse_words)
 - [vsf](curse_words)
 - cala a boca
-- idiota
+- [idiota](curse_words)
 - troxa
 - trouxa
 - [puta](curse_words) que pariu

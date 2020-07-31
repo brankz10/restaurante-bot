@@ -99,6 +99,15 @@ class ActionShowOrders(Action):
     def name(self) -> Text:
         return "action_show_orders"
 
+    def table_pprint(self, df: pd.DataFrame) -> Text:
+        text = ""
+        for index, row in df.iterrows():
+            text += f"Pedido {index+1}:\n\n"
+            text += f"Item: {row.dish}\n\n"
+            text += f"Quantidade: {row.number}\n\n"
+            text += f"Observação: {row.note}\n\n\n"
+        return text
+
     def run(
         self,
         dispatcher: CollectingDispatcher,
@@ -106,8 +115,9 @@ class ActionShowOrders(Action):
         domain: Dict[Text, Any],
     ) -> List[EventType]:
         if (orders_dir / f"{tracker.sender_id}.csv").exists():
+            
             dispatcher.utter_message(
-                text=str(
+                text=self.table_pprint(
                     pd.read_csv(orders_dir / f"{tracker.sender_id}.csv")
                 )
             )

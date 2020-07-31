@@ -41,6 +41,7 @@
 - quero um [coca]{"entity": "dish", "value": "COCA COLA"} [sem gelo](note) também
 - quero um [mc chicken]{"entity": "dish", "value": "MC CHICKEN"}
 - oi, quero um [duplo quarterão]{"entity": "dish", "value": "DUPLO QUARTERAO"}
+- quero um [suco de maracuja](dish)
 
 ## intent:inform
 - um apenas
@@ -87,6 +88,8 @@
 - brigado
 - obrigado
 - muito obrigado!!!
+- obrigada
+- muito obrigada!!!
 
 ## intent:just_that
 - só isso mesmo
@@ -99,6 +102,18 @@
 - quero ela [com uma rodela de limão](note)
 - sim, quero [sem queijo](note)
 - quero que [tire o picles](note)
+- gostaria [sem gelo](note)
+- pode [tirar o queijo](note)?
+- gostaria [sem açucar o suco](note)
+
+## intent:order_later
+- entao, vou dar uma olhada no cardapio primeiro
+
+## intent:ready_to_order
+- certo, escolhi já
+
+## intent:its_fine
+- ok
 
 ## synonym:BIG MAC
 - BigMc
@@ -117,6 +132,9 @@
 - coca cola
 - coca
 - coca-cola
+
+## synonym:DUPLO QUARTERAO
+- duplo quarterão
 
 ## synonym:DUPLO SALADA
 - duplo salada
